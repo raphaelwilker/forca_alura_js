@@ -7,6 +7,7 @@ const criaJogo = function(sprite) {
     let hit = 0;
 
     const setPalavraSecreta = function (palavra) { 
+        if(!palavra.trim()) throw Error('Palavra inválida');
         secretword =  palavra.toUpperCase();
         createLacuna();
     };
@@ -24,9 +25,9 @@ const criaJogo = function(sprite) {
     };
 
     const processTry = function(letter){
-        
+        if(!letter.trim()) throw Error('Chute inválido');
         if(!_sprite.isFinish()){
-            let expRe = new RegExp(letter.toUpperCase(),'g')
+            let expRe = new RegExp(letter.toUpperCase().trim(),'g')
             if(secretword.match(expRe)){
                 while(match = expRe.exec(secretword)){
                     lacunas[match.index] = letter;
@@ -41,20 +42,29 @@ const criaJogo = function(sprite) {
 
     const winOrLose = function(){
 
-        return _sprite.isFinish();
+        return win() || lose();
+
     }
 
     const win = function(){
+
         return hit == lacunas.length;
+
     }
 
     const lose = function(){
-        return !win;
+
+        return _sprite.isFinish();
+
     }
 
     const restart = function(){
+
         _sprite.reset();
+        etapa = 1;
+        secretword = ''
         hit = 0;
+
     }
 
     return {

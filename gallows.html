@@ -29,6 +29,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/sprite.js"></script>
     <script src="js/jogo.js"></script>
+    <script src="js/controller.js"></script>
     <script>
 
         // var sprite = createSprite('.sprite');
@@ -36,38 +37,43 @@
         //     sprite.nextFrame();
         // }, 500);
         //setInterval(function () {
-            var jogo = criaJogo(createSprite('.sprite'));
-            console.log(jogo.getEtapa()); // 1
-            jogo.setPalavraSecreta('calopsita');
-            console.log(jogo.winOrLose()); // false
-            jogo.processTry('c');
-            jogo.processTry('a');
-            jogo.processTry('l');
-            jogo.processTry('o');
-            jogo.processTry('p');
-            jogo.processTry('s');
-            jogo.processTry('i');
-            jogo.processTry('t');
-            console.log(jogo.winOrLose()); // true
-            console.log(jogo.win()); // true
-            console.log(jogo.lose()); // false
-            jogo.restart();
-            console.log(jogo.getLacunas());
-            console.log(jogo.getEtapa());
-            jogo.setPalavraSecreta('calopsita');
-            jogo.processTry('z');
-            jogo.processTry('z');
-            jogo.processTry('z');
-            jogo.processTry('z');
-            jogo.processTry('z');
-            jogo.processTry('z');
-            jogo.processTry('z');
-            jogo.processTry('z');
-            jogo.processTry('z');
-            console.log(jogo.winOrLose()); // true
-            console.log(jogo.win()); // false
-            console.log(jogo.lose()); // true
+            // var jogo = criaJogo(createSprite('.sprite'));
+            // console.log(jogo.getEtapa()); // 1
+            // jogo.setPalavraSecreta('calopsita');
+            // console.log(jogo.winOrLose()); // false
+            // jogo.processTry('c');
+            // jogo.processTry('a');
+            // jogo.processTry('l');
+            // jogo.processTry('o');
+            // jogo.processTry('p');
+            // jogo.processTry('s');
+            // jogo.processTry('i');
+            // jogo.processTry('t');
+            // console.log(jogo.winOrLose()); // true
+            // console.log(jogo.win()); // true
+            // console.log(jogo.lose()); // false
+            // jogo.restart();
+            // console.log(jogo.getLacunas());
+            // console.log(jogo.getEtapa());
+            // jogo.setPalavraSecreta('calopsita');
+            // jogo.processTry('z');
+            // jogo.processTry('z');
+            // jogo.processTry('z');
+            // jogo.processTry('z');
+            // jogo.processTry('z');
+            // jogo.processTry('z');
+            // jogo.processTry('z');
+            // jogo.processTry('z');
+            // jogo.processTry('z');
+            // console.log(jogo.winOrLose()); // true
+            // console.log(jogo.win()); // false
+            // console.log(jogo.lose()); // true
         //}, 5000);
+        criaController(
+            criaJogo(
+                createSprite('.sprite')
+            )
+        ).inicia();
     </script>
 </body>
 </html>
